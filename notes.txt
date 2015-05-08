@@ -1,9 +1,22 @@
 
 Quartz Plugin for scheduling
+
 Mail plugin for sending email
+
 - both for sending email at begining and end of missions and games
 
+
+
 Games
+
 - Creation, modifying, deletion
+
 - Players
   - Joining, leaving, gaining/losing moderator status
+
+- names and shortnames with #
+
+Users
+- username with @ symbol starting
+- don't use email to login with
+- forgot password/username

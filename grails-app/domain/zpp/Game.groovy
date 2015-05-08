@@ -4,20 +4,22 @@ class Game
 {
     boolean accepted;       //has this game been accepted by a Z++ administrator?
 	String name;
+	String shortName;
     String rules;
-    Date dateCreated;
+    Date created;
     Date start;
     Date end;
-    boolean hasEnded;       //has the game ended
 
 	static hasMany = [players: Player]
 
     static constraints = {
+		shortName blank:false, unique: true
         name blank:false
         rules blank:false
-        dateCreated blank:false;
-        start blank:false;
-        end blank:false;
+        created blank:false
+        start blank:false
+        end blank:false
+		accepted blank:false
     }
 
     def getMods()
@@ -50,4 +52,21 @@ class Game
     {
         return end.before(new Date());
     }
+	
+	public boolean addPlayer(SecUser user, boolean moderator, PlayerType type)
+	{
+		if(user.player != null)
+			return false;
+		
+		def player = new Player(
+			user: user,
+			game: this,
+			isModerator: moderator,
+			type: type,
+			killcode: Player.GenerateKillCode()
+		);		
+		addToPlayers(player);
+		player.save(failOnError: true, flush: true);
+		this.save(failOnError: true, flush: true);
+	}
 }

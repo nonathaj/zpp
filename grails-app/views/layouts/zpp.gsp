@@ -10,8 +10,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Z++ <g:layoutTitle /></title>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  		<asset:stylesheet src="zpp_main.css"/>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<asset:javascript src="moment-with-locales.js"/>
+		
+  		<asset:javascript src="zpp_main.js"/> <%-- Inlcudes Twitter Bootstrap --%>
+  		<asset:stylesheet src="zpp_main.css"/> <%-- Inlcudes Twitter Bootstrap --%>
+		
+  		<asset:stylesheet src="bootstrap-datetimepicker.css"/>
+		<asset:javascript src="bootstrap-datetimepicker.min.js"/>
+		
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<g:layoutHead/>
 	</head>
 	<body>
@@ -27,12 +35,12 @@
 					<g:link controller="home" action="index" class="navbar-brand">Z++</g:link>
 				</div>
 				<div class="navbar-collapse collapse">
-					<%--
 					<ul class="nav navbar-nav">
+						<%-- 
 						<li class="${params.controller && params.controller.toUpperCase().equals('GAME') ? 'active' : ''}"><g:link controller="Game" action="list">Games</g:link></li>
 						<li class="${params.controller && params.controller.toUpperCase().equals('PROFILE') ? 'active' : ''}"><g:link controller="Profile" action="list">Players</g:link></li>
+						--%>
 					</ul>
-					--%>
 
 					<!-- Right side of the Nav Bar -->
 					<ul class="nav navbar-nav navbar-right">
@@ -94,6 +102,5 @@
 			</g:if>
 			<g:layoutBody/>
 		</div>
-  		<asset:javascript src="zpp_main.js"/>
 	</body>
 </html>

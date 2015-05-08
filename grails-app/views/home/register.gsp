@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4 well">
+			<div class="zpp-form well">
 				<g:form controller="home" role="form">
 					<input type="hidden" name="attempted" value="yes"/>
 					<div class="form-group">

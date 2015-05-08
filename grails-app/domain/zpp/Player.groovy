@@ -1,5 +1,7 @@
 package zpp
 
+import java.security.SecureRandom;
+
 enum PlayerType 
 {
 	INACTIVE, HUMAN, ZOMBIE, OZ;
@@ -13,9 +15,9 @@ enum PlayerType
 	{
 		if(this == PlayerType.INACTIVE)
 			return "Inactive";
-		else if(this == PlayerType.HUMAN)
+		else if(this == PlayerType.HUMAN || this == PlayerType.OZ)
 			return "Human";
-		else if(this == PlayerType.ZOMBIE || this == PlayerType.OZ)
+		else if(this == PlayerType.ZOMBIE)
 			return "Zombie";
 	}
 
@@ -61,4 +63,17 @@ class Player {
     		title += "Moderator"
     	return type.toPublicString + title;
     }
+	
+	public static String GenerateKillCode()
+	{
+		String killcode = GenerateRandomAlphanumericString(10);
+		while(findAllByKillcode(killcode).size() > 0)
+			killcode = GenerateRandomAlphanumericString(10);
+		return killcode;
+	}
+	
+	static String GenerateRandomAlphanumericString(int length)
+	{
+		return new BigInteger(130, new Random()).toString(32).substring(0, length);
+	}
 }

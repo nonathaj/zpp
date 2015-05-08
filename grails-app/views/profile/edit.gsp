@@ -5,7 +5,7 @@
 		<title>Edit ${session['user'].getFullName()}'s Profile</title>
 	</head>
 	<body>
-		<div class="well">
+		<div class="zpp-form well">
 			<g:form controller="Profile" action="edit" role="form">
 				<g:hiddenField name="id" value="${user.id}" />
 				<g:hiddenField name="attempted" value="yes" />
